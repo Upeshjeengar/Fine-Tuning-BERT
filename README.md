@@ -39,33 +39,34 @@ BERT, short for Bidirectional Encoder Representations from Transformers, is a ma
 
 #### [Dataset](https://huggingface.co/datasets/shawhin/phishing-site-classification) I used for fine-tuning [BERT](https://huggingface.co/google-bert/bert-base-uncased)
 
-## Brief summary
+## Brief Summary of Code
 
 1. **Dataset Loading**:  
-   You loaded the phishing site classification dataset from Hugging Face using `load_dataset`.
+   Loaded the phishing site classification dataset from Hugging Face using `load_dataset`.
 
 2. **Model Initialization**:  
-   You defined the model path (`bert-base-uncased`) and set up a binary classification model using `AutoModelForSequenceClassification`, with two labels: "Safe" and "Not Safe". You froze all base model parameters except for the pooling layers to fine-tune only those.
+   Defined the model path (`bert-base-uncased`) and set up a binary classification model using `AutoModelForSequenceClassification`, with two labels: "Safe" and "Not Safe", and froze all base model parameters except for the pooling layers to fine-tune only those.
 
 3. **Preprocessing**:  
-   You tokenized the dataset using a `preprocess_function`, which applies truncation to the text inputs. The tokenized dataset was created using `dataset_dict.map`.
+   Tokenized the dataset using a `preprocess_function`, which applies truncation to the text inputs. The tokenized dataset was created using `dataset_dict.map`.
 
 4. **Data Collation**:  
-   You used `DataCollatorWithPadding` to handle padding while batching the data for training and evaluation.
+   Used `DataCollatorWithPadding` to handle padding while batching the data for training and evaluation.
 
 5. **Metrics Loading**:  
-   You loaded accuracy and ROC AUC score metrics using the `evaluate` library.
+   Loaded accuracy and ROC AUC score metrics using the `evaluate` library.
 
 6. **Metric Computation**:  
-   In the `compute_metrics` function, you computed the ROC AUC and accuracy after applying softmax to the predictions to calculate class probabilities.
+   In the `compute_metrics` function, computed the ROC AUC and accuracy after applying softmax to the predictions to calculate class probabilities.
 
 7. **Training Arguments**:  
-   You defined hyperparameters including a learning rate of `2e-4`, batch size of 8, and trained for 10 epochs. You also set strategies for logging, evaluation, saving checkpoints, and loading the best model.
+   Defined hyperparameters including a learning rate of `2e-4`, batch size of 8, and trained for 10 epochs. Strategies for logging, evaluation, saving checkpoints, and loading the best model were also set.
 
 8. **Model Training**:  
    The `Trainer` class was initialized with the model, tokenizer, datasets, and metrics. The training process was executed using the `train()` method.
 
 9. **Validation**:  
-   After training, you predicted the validation set using the model and computed the accuracy and ROC AUC scores using the `compute_metrics` function.
+   After training, predicted the validation set using the model and computed the accuracy and ROC AUC scores using the `compute_metrics` function.
 
-10. **Saving the model** to drive
+10. **Saving the Model**:  
+   Saved the model to drive for future use.

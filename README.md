@@ -1,11 +1,13 @@
 # Fine-Tuning-BERT
-**Fine-Tuning BERT for Phishing URL Identification**
+
+## Fine-tuning
+Fine tuning involves adapting a pre-trained model to a particular use case through additional training.
+
+Pre-trained models are developed via unsupervised learning, which precludes the need for large-scale labeled datasets. Fine-tuned models can then exploit pre-trained model representations to significantly reduce training costs and improve model performance compared to training from scratch
+
+## About BERT for Phishing URL Identification
 
 BERT, short for Bidirectional Encoder Representations from Transformers, is a machine learning (ML) framework for natural language processing. In 2018, Google developed this algorithm to improve contextual understanding of unlabeled text across a broad range of tasks by learning to predict text that might come before and after (bi-directional) other text.
-
-
----
-
 
 **USECASES**:
 * Sentiment Analysis
@@ -17,7 +19,7 @@ BERT, short for Bidirectional Encoder Representations from Transformers, is a ma
 ---
 
 
-## BERT vs GPT
+### BERT vs GPT
 **BERT**
 * Bidirectional Can process text left-to-right and right- to-left. BERT uses the encoder segment of a transformation model.
 * Applied in Google Docs, Gmail, smart compose, enhanced search, voice assistance, analyzing customer reviews, and so on.
